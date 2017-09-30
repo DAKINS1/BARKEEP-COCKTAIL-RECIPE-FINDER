@@ -20,4 +20,4 @@ Initial file structure for project 2
 
 => package.json – remembers all packages that your app depends on and their versions
 
-[https://www.terlici.com/2014/08/25/best-practices-express-structure.html(https://www.terlici.com/2014/08/25/best-practices-express-structure.html)
+[https://www.terlici.com/2014/08/25/best-practices-express-structure.html](https://www.terlici.com/2014/08/25/best-practices-express-structure.html)
