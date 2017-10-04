@@ -1,15 +1,21 @@
 {
-  "name": "PROJECT-2",
+  "name": "groupprojectPre",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.2",
+    "sequelize-json": "^2.1.2"
+  }
 }

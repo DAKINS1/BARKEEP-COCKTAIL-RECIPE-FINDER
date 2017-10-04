@@ -1,0 +1,66 @@
+body {
+  background-color:rgba(4,0,0,0.66);
+}
+
+.caption {
+  margin-top:-16px;
+  font-size:20px;
+}
+
+.caption p {
+  color:rgb(238,104,7);
+}
+
+.thumbnail {
+  background-color:rgb(106,74,60);
+}
+
+h3 {
+  text-align:center;
+  color:orange;
+}
+
+a {
+  padding-top:0px;
+  margin-top:0px;
+}
+
+#drink2 {
+}
+
+#navcol-1 a {
+  font-size:17px;
+  color:rgb(6,4,0);
+}
+
+#drink1 {
+  background-image:url(../../assets/img/loft.jpg);
+}
+
+#navbarColor {
+  background-color:rgb(223,105,26);
+}
+
+.threeImage {
+  height:270px;
+  width:316px;
+}
+
+.footer-dark {
+  text-align:center;
+  margin-top:0px;
+  margin-bottom:-5px;
+  padding-bottom:12px;
+  height:200px;
+}
+
+#footerArea {
+  margin-top:-26px;
+  margin-bottom:0px;
+}
+
+.navbar-default {
+  background-color:#df691a;
+  border-color:#df691a;
+}
+
