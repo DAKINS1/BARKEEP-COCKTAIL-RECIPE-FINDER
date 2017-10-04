@@ -16,8 +16,7 @@ module.exports = function(sequelize, DataTypes){
         updatedAt: {
             type: DataTypes.DATE
         }
-    }, {
-        timestamps: false
     });
+    
     return DrinkList;
 }
