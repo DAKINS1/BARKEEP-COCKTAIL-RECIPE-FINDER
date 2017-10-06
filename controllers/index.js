@@ -11,6 +11,6 @@ module.exports = function(app, path){
     });
 
     app.get('/form', function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/form.html'));
+        res.sendFile(path.join(__dirname, '../views/getmixing.html'));
     });
 }

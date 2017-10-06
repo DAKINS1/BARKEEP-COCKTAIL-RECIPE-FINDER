@@ -24,7 +24,7 @@ function ajaxCall(ingredientArray) {
 
 module.exports = function(app, JsonField){
     app.post('/create', function(req, res){
-        // console.log(req.body);
+        console.log(req.body);
         var ingredientArray = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3, req.body.ingredient4];
         db.Drinks.create({
             drink_name: req.body.drink_name,
