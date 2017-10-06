@@ -5,7 +5,6 @@ function cleanData(ingredientArray, data) {
     var matchedIngredient = [];
     for (var obj in data) {
         var cleanedData = data[obj].dataValues.ingredients;
-
         for (var i = 0; i < ingredientArray.length; i++) {
             if (cleanedData.indexOf(ingredientArray[i]) !== -1) {
                 matchedIngredient.push(data[obj].dataValues.drink_name);
@@ -24,18 +23,6 @@ function ajaxCall(ingredientArray) {
 }
 
 module.exports = function(app, JsonField){
-
-    // app.get('/api', function(req, res){
-    //     db.Drinks.findAll().then(function(data){
-    //         // return res.data;
-
-    //         cleanData('orange', data);
-
-    //         // console.log(data);
-    //         // res.end();
-    //     })
-    // });
-
     app.post('/create', function(req, res){
         // console.log(req.body);
         var ingredientArray = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3, req.body.ingredient4];

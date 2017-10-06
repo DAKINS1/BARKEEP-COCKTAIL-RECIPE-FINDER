@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drinkListDisplay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets2/css/styles.css"> -->
+    <style>
+    .white {
+    color:rgba(0,0,255,0);
+    }
+
+    .black {
+    background-color:black;
+    }
+
+    #promo {
+    text-align:center;
+    padding:40px;
+    background-image:url(../../assets/img/Screen-Shot-2014-10-28-at-11.15.43-AM.png);
+    background-size:cover;
+    }
+
+    #promo .jumbotron {
+    border-radius:20px;
+    background-color:rgba(255,255,255,0);
+    color:#ffed38;
+    }
+
+    h1 {
+    text-align:center;
+    color:#ffed38;
+    }
+
+    #promo .jumbotron h1 {
+    font-size:1000%;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="promo">
+        <div class="jumbotron">
+            <h1>Get Mixing</h1>
+            <p class="white">Make a drink with what you already have</p>
+            <p class="white">Make a drink with what you already have</p>
+        </div>
+    </div>
+    <div>
+        <div class="row black">
+            <div class="col-md-12">
+                <h1>Add Ingredients</h1>
+            </div>
+        </div>
+        <div class="row black">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 black">
+
+                <!-- add -->
+                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
+
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                <!-- added -->
+                <button type="button" id="getIngredients" class="btn btn-large btn-block btn-danger">Get more ingredient</button>
+                <button type="button" id="consoleMe" class="btn btn-large btn-block btn-primary">Search</button>
+
+                <form class="ingre">
+                    <div id="ingredientsDiv"></div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#getIngredients').on('click', function (event) {
+                event.preventDefault();
+
+                var moreIngredients =
+                    '<input type="text" name="ingredients" value="1" placeholder="Add an ingredient" class="form-control"><br>';
+
+                $('#ingredientsDiv').append(moreIngredients);
+
+            });
+
+            $('#consoleMe').on('click', function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    method: 'POST',
+                    url: './findDrink',
+                    data: $('.ingre').serialize()
+                }).done(function (result) {
+                    console.log(result);
+                })
+
+            });
+        });
+    </script>
+</body>
+
+</html>
