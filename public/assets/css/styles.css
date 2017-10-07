@@ -2,6 +2,10 @@ body {
   background-color:rgba(4,0,0,0.66);
 }
 
+.jumbotron{
+  min-height: 550px;
+}
+
 .caption {
   margin-top:-16px;
   font-size:20px;
@@ -23,9 +27,6 @@ h3 {
 a {
   padding-top:0px;
   margin-top:0px;
-}
-
-#drink2 {
 }
 
 #navcol-1 a {
@@ -64,3 +65,39 @@ a {
   border-color:#df691a;
 }
 
+/*getMixing Page*/
+.white {
+  color:rgba(0,0,0,0);
+}
+
+.black {
+  background-color:black;
+}
+
+#mix {
+  font-size:82px;
+  color:white;
+}
+
+#centerCol {
+  min-height:200px;
+}
+
+.words {
+  color: rgb(223,105,26);
+}
+
+#thirdImage {
+  max-height:212px;
+}
+
+.makeBig {
+  font-size:67px;
+  color: rgb(223,105,26);
+}
+
+#greeting {
+  text-align:center;
+  font-size:64px;
+  color:white;
+}
