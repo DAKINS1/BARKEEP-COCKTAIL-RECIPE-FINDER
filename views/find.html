@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a drink</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/addpage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+img {
+    max-height: 200px;
+}
+</style>
+</head>
+
+<body>
+    <div id="promo">
+        <div class="jumbotron">
+            <h1>Find a Drink</h1>
+            <p class="white">We know it can be hard to choose.</p>
+            <p>You can start by searching Liquor Type, Drink Name, or ingredient until you find something you like.</p>
+<!--             <p>Then just click the add button to add it to your own personal bar book.</p> -->
+        </div>
+    </div>
+        <form class="drink-form" id="drink-form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="drink-input" placeholder="Enter Liquor type, Drink Name, or Ingredient">
+          </div>
+          <button id="select-drink" type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <BR>
+
+    <div id="main-container">
+     <div id="main"></div>
+    </div>
+
+    <div id= "row">
+    <div class="footer-dark">
+        <footer id="footerArea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6 item text">
+                        <h3>Company Name</h3>
+                        <p>Blah blah. Blah blah. Blah blah. Blah blah. Blah blah.</p>
+                    </div>
+                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 col-sm-4 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                    <p class="copyright">Company Name © 2016</p>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+</body>
+
+<script>
+  function searchDrinks(drink) {
+
+    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
+    var queryURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).done(function(response) {
+//response={drinks:Array(4)}
+var results = response.drinks
+      // Printing the entire object to console
+      console.log(response.drinks);
+$("#main").html('');
+for (var i = 0; i < results.length; i++) {
+      // Constructing HTML containing the artist information
+      var drinkDiv = $("<div class='col-md-2'>");
+      console.log(response.drinks[1].strDrink);
+      var drinkName = $("<h1>").text("Drink: " + results[i].strDrink);
+      // console.log(drinkName);
+      var drinkImg = $("<img>");
+      var staticSRC = results[i].strDrinkThumb
+      drinkImg.attr("src", staticSRC);
+      var drinkMeasure1 = $("<p>").text(results[i].strMeasure1);
+      console.log(results[0].strMeasure1);
+      var drinkIngredient1 = $("<p>").text(results[i].strIngredient1);
+      var drinkMeasure2 = $("<p>").text(results[i].strMeasure2);
+      var drinkIngredient2 = $("<p>").text(results[i].strIngredient2);
+      var drinkMeasure3 = $("<p>").text(results[i].strMeasure3);
+      var drinkIngredient3 = $("<p>").text(results[i].strIngredient3);
+      var drinkMeasure4 = $("<p>").text(results[i].strMeasure4);
+      var drinkIngredient4 = $("<p>").text(results[i].strIngredient4);
+      var drinkInstructions = $("<p>").text(results[i].strInstructions);
+      // var p = $("<p>").text(drinkName); this is already be called
+      var p2 = [drinkMeasure1, drinkIngredient1, drinkMeasure2, drinkIngredient2, drinkMeasure3, drinkIngredient3, drinkMeasure4, drinkIngredient4, drinkInstructions];
+      drinkDiv.append(drinkName);
+      drinkDiv.append(drinkImg);
+      drinkDiv.append(p2);
+      $("#main").prepend(drinkDiv);
+      // Empty the contents of the artist-div, append the new artist content
+  }
+    });
+  }
+
+  // Event handler for user clicking the select-artist button
+  $("#select-drink").on("click", function(event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing the artist name
+    var drink = $("#drink-input").val().trim();
+
+    // Running the searchBandsInTown function (passing in the artist as an argument)
+    searchDrinks(drink);
+  });
+</script>
+
+</html>

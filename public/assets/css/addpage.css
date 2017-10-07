@@ -1,0 +1,29 @@
+
+
+    #promo {
+    text-align:center;
+
+/*    background-image:url(../../assets/images/);*/
+    background-size:cover;
+    }
+
+    #promo .jumbotron {
+    border-radius:20px;
+    background-color:rgba(255,255,255,0);
+    color:#ffed38;
+    }
+
+    h1 {
+    text-align:center;
+    color:#ffed38;
+    }
+
+    #promo .jumbotron h1 {
+    font-size:1000%;
+    }
+
+    .drink-form{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    }

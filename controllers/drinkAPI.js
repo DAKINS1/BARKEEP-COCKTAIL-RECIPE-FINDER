@@ -12,7 +12,7 @@ var db = require('../models');
 function cleanData(ingredientArray, data, drink_name) {
     var matchedNames = [];
     /**
-     * @forloop 
+     * @forloop
      * A loop to iterate of each drink stored in the database
      */
     for (var obj in data) {
@@ -38,7 +38,7 @@ function cleanData(ingredientArray, data, drink_name) {
                     drink_name = data[obj].dataValues.drink_name;
                     // push the matched names to an array
                     matchedNames.push(data[obj].dataValues.drink_name);
-                    
+
                     //TODO PUSH NAME AND URL
                     // matchedNames.push({
                     //     name: data[obj].dataValues.drink_name,
@@ -60,7 +60,7 @@ function cleanData(ingredientArray, data, drink_name) {
 
 
 /**
- * @function 
+ * @function
  * @param {*} ingredientArray The list of ingredients posted from the form
  * @param {*} drink_name drink_name The drinks name
  */
@@ -88,6 +88,22 @@ module.exports = function (app, JsonField) {
 
         });
     })
+
+  // POST route for saving a new drink
+      app.post('/add', function(req, res) {
+        // create takes an argument of an object describing the drink we want to
+        // insert into our table.
+
+        db.Drinks.create({
+          drink_name: req.body.drink_name,
+          ingredients: req.body.ingredients
+
+        }).then(function(data) {
+          // We have access to the new drink as an argument inside of the callback function
+          res.json(data);
+        });
+    })
+
 }
 
 
