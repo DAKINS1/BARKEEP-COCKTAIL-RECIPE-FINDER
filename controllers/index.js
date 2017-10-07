@@ -6,11 +6,7 @@ module.exports = function(app, path){
         res.sendFile(path.join(__dirname, '../views/index.html'));
     });
 
-    app.get('/cocktails', function(req, res){
-        res.sendFile(path.join(__dirname, '../views/cocktails.html'));
-    });
-
-    app.get('/form', function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/getmixing.html'));
+    app.get('/getmixing', function(req, res){
+        res.sendFile(path.join(__dirname, '../views/getMixing.html'));
     });
 }
