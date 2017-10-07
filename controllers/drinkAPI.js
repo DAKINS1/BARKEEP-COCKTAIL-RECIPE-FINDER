@@ -38,10 +38,10 @@ function cleanData(ingredientArray, data, drink_name) {
                     // assign drink_name to the drink that has the matching ingredient
                     drink_name = data[obj].dataValues.drink_name;
                     // push the matched names to an array
-                    matchNames.push(data[obj].dataValues.drink_name);
+                    matchedNames.push(data[obj].dataValues.drink_name);
                     
                     //TODO PUSH NAME AND URL
-                    // matchNames.push({
+                    // matchedNames.push({
                     //     name: data[obj].dataValues.drink_name,
                     //     url: data[obj].dataValues.url
                     // });
@@ -54,9 +54,9 @@ function cleanData(ingredientArray, data, drink_name) {
 
     }
 
-    log(matchNames)
+    log(matchedNames)
 
-    return matchNames;
+    return matchedNames;
 }
 
 
