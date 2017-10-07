@@ -15,7 +15,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 require('./controllers')(app, path);
-require('./controllers/drinkAPI.js')(app, JsonField);
+require('./controllers/drinkAPI.js')(app, bodyParser);
 
 var dropTable = {force: true};
 
