@@ -82,59 +82,44 @@ img {
 </body>
 
 <script>
-  function searchDrinks(drink) {
+    function searchDrinks(drink) {
 
-    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
-    var queryURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink;
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).done(function(response) {
-//response={drinks:Array(4)}
-var results = response.drinks
-      // Printing the entire object to console
-      console.log(response.drinks);
-$("#main").html('');
-for (var i = 0; i < results.length; i++) {
-      // Constructing HTML containing the artist information
-      var drinkDiv = $("<div class='col-md-2'>");
-      console.log(response.drinks[1].strDrink);
-      var drinkName = $("<h1>").text("Drink: " + results[i].strDrink);
-      // console.log(drinkName);
-      var drinkImg = $("<img>");
-      var staticSRC = results[i].strDrinkThumb
-      drinkImg.attr("src", staticSRC);
-      var drinkMeasure1 = $("<p>").text(results[i].strMeasure1);
-      console.log(results[0].strMeasure1);
-      var drinkIngredient1 = $("<p>").text(results[i].strIngredient1);
-      var drinkMeasure2 = $("<p>").text(results[i].strMeasure2);
-      var drinkIngredient2 = $("<p>").text(results[i].strIngredient2);
-      var drinkMeasure3 = $("<p>").text(results[i].strMeasure3);
-      var drinkIngredient3 = $("<p>").text(results[i].strIngredient3);
-      var drinkMeasure4 = $("<p>").text(results[i].strMeasure4);
-      var drinkIngredient4 = $("<p>").text(results[i].strIngredient4);
-      var drinkInstructions = $("<p>").text(results[i].strInstructions);
-      // var p = $("<p>").text(drinkName); this is already be called
-      var p2 = [drinkMeasure1, drinkIngredient1, drinkMeasure2, drinkIngredient2, drinkMeasure3, drinkIngredient3, drinkMeasure4, drinkIngredient4, drinkInstructions];
-      drinkDiv.append(drinkName);
-      drinkDiv.append(drinkImg);
-      drinkDiv.append(p2);
-      $("#main").prepend(drinkDiv);
-      // Empty the contents of the artist-div, append the new artist content
-  }
+        var queryURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) {
+            for (var obj in response.drinks) {
+                $('#main').append('<div class="col-md-2" id=' + obj + '>');
+                if (response.drinks[obj].strDrink) $('#' + obj).append('<h4>' + response.drinks[obj].strDrink + '</h4>');
+                if (response.drinks[obj].strDrinkThumb) $('#' + obj).append('<img src="' + response.drinks[obj].strDrinkThumb + '">')
+                var keysArray = Object.keys(response.drinks[obj]);
+                console.log(keysArray)
+                var counter = 1;
+                for (var i = 0; i < keysArray.length; i++) {
+                    var name = 'strIngredient' + counter
+                    if ( keysArray[i] === name && keysArray[i] !== '') {
+                        $('#' + obj).append('<p style="color:white">' + response.drinks[obj][name] + '</p>');
+                        counter++;
+                    }
+                    $('#main').append('</div>');
+                }
+            }
+        });
+    }
+
+
+    $("#select-drink").on("click", function (event) {
+
+        event.preventDefault();
+
+        var drink = $("#drink-input").val().trim();
+
+        searchDrinks(drink);
+
     });
-  }
 
-  // Event handler for user clicking the select-artist button
-  $("#select-drink").on("click", function(event) {
-    // Preventing the button from trying to submit the form
-    event.preventDefault();
-    // Storing the artist name
-    var drink = $("#drink-input").val().trim();
-
-    // Running the searchBandsInTown function (passing in the artist as an argument)
-    searchDrinks(drink);
-  });
 </script>
 
 </html>
