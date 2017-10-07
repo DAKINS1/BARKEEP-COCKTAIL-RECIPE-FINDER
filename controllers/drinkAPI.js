@@ -77,7 +77,7 @@ function findData(ingredientArray, drink_name) {
 
 module.exports = function (app, JsonField) {
 
-    app.post('/create', function (req, res) {
+    app.post('/findDrink', function (req, res) {
         /**
          * @var ingredientArray The return ingredients from the form post
          */
