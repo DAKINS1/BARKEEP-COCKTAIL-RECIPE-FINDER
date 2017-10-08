@@ -129,7 +129,7 @@
                 event.preventDefault();
 
                 var moreIngredients =
-                    '<input type="text" name="ingredients" value="1" placeholder="Add an ingredient" class="form-control"><br>';
+                    '<input type="text" name="ingredients" value="" placeholder="Add an ingredient" class="form-control"><br>';
 
                 $('#ingredientsDiv').append(moreIngredients);
 
@@ -143,7 +143,14 @@
                     url: './findDrink',
                     data: $('.ingre').serialize()
                 }).done(function (result) {
-                    console.log(result);
+                    
+                    $('#centerCol').html('<div id="ingredientsDiv" class="col-md-offset-4 col-md-6">');
+                    result.forEach(function(element, i) {
+                            $('#ingredientsDiv').append('<h1 style="color: white;">'+ element.name + '</h1>' + '<br><div id="drinkIngredients'+[i]+'"><div>');
+
+                            $('#drinkIngredients'+[i]).append('<h3>Ingredients</3><br><h4 style="color: white;">'+ element.ingredients + '</h4>' + '<br>');
+                            $('#drinkIngredients'+[i]).append('<img src="'+ element.url + '"><br>');
+                        }); 
                 })
 
             });
