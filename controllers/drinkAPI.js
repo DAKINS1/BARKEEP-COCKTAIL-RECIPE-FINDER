@@ -37,13 +37,14 @@ function cleanData(ingredientArray, data, drink_name) {
                     // assign drink_name to the drink that has the matching ingredient
                     drink_name = data[obj].dataValues.drink_name;
                     // push the matched names to an array
-                    matchedNames.push(data[obj].dataValues.drink_name);
+                    // matchedNames.push(data[obj].dataValues.drink_name);
 
-                    //TODO PUSH NAME AND URL
-                    // matchedNames.push({
-                    //     name: data[obj].dataValues.drink_name,
-                    //     url: data[obj].dataValues.url
-                    // });
+                    // TODO PUSH NAME AND URL
+                    matchedNames.push({
+                        name: data[obj].dataValues.drink_name,
+                        ingredients: data[obj].dataValues.ingredients,
+                        url: data[obj].dataValues.url
+                    });
 
                 }
 
@@ -96,7 +97,8 @@ module.exports = function (app, JsonField) {
 
         db.Drinks.create({
           drink_name: req.body.drink_name,
-          ingredients: req.body.ingredients
+          ingredients: req.body.ingredients,
+          url: req.body.url
 
         }).then(function(data) {
           // We have access to the new drink as an argument inside of the callback function
