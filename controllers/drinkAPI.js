@@ -54,7 +54,7 @@ function cleanData(ingredientArray, data, drink_name) {
 
     }
 
-    log(matchedNames)
+    // log(matchedNames)
 
     return matchedNames;
 }
