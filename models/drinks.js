@@ -10,6 +10,9 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING
         },
         ingredients: JsonField(sequelize, 'User', 'ingredients'),
+        url: {
+            type: DataTypes.STRING
+        },
         createdAt: {
             type: DataTypes.DATE
         },
