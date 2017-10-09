@@ -6,6 +6,10 @@ module.exports = function(app, path){
         res.sendFile(path.join(__dirname, '../views/index.html'));
     });
 
+    app.get('/not21', function(req, res){
+        res.render('not21');
+    });
+
     app.get('/home', function(req, res){
         res.sendFile(path.join(__dirname, '../views/home.html'));
     });
