@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/addpage.css">
+    <link rel="stylesheet" href="assets/css/findpage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 img {
@@ -22,13 +22,27 @@ img {
 </head>
 
 <body>
-    <div id="promo">
-        <div class="jumbotron">
-            <h1>Find a Drink</h1>
-            <p class="white">We know it can be hard to choose.</p>
-            <p>You can start by searching Liquor Type, Drink Name, or ingredient until you find something you like.</p>
-<!--             <p>Then just click the add button to add it to your own personal bar book.</p> -->
+    <div class="container-fluid main-header-text">
+        <div class="top-header-container">
+            <div class="header-cell">
+                <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif;">Find a drink</h1></div>
         </div>
+        <nav class="navbar navbar-default nav-main-wrapper">
+
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand visible-xs-block navbar-link" href="#">MENU </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" role="presentation"><a href="/home">Home </a></li>
+                        <li role="presentation"><a href="/find">Drinks</a></li>
+                        <li role="presentation"><a href="/getmixing">Get Mixing</a></li>
+                        <li role="presentation"><a href="/add">Add</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
         <form class="drink-form" id="drink-form">
           <div class="form-group">
@@ -42,7 +56,7 @@ img {
      <div id="main"></div>
     </div>
 
-    <div id= "row">
+<!--     <div id= "row">
     <div class="footer-dark">
         <footer id="footerArea">
             <div class="container">
@@ -72,7 +86,7 @@ img {
                     <p class="copyright">Company Name © 2016</p>
             </div>
         </footer>
-    </div>
+    </div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -92,15 +106,16 @@ img {
         }).done(function (response) {
             for (var obj in response.drinks) {
                 $('#main').append('<div class="col-md-2" id=' + obj + '>');
-                if (response.drinks[obj].strDrink) $('#' + obj).append('<h4>' + response.drinks[obj].strDrink + '</h4>');
+                if (response.drinks[obj].strDrink) $('#' + obj).append('<h4 style="color:white">' + response.drinks[obj].strDrink + '</h4>');
                 if (response.drinks[obj].strDrinkThumb) $('#' + obj).append('<img src="' + response.drinks[obj].strDrinkThumb + '">')
                 var keysArray = Object.keys(response.drinks[obj]);
                 console.log(keysArray)
                 var counter = 1;
                 for (var i = 0; i < keysArray.length; i++) {
                     var name = 'strIngredient' + counter
-                    if ( keysArray[i] === name && keysArray[i] !== '') {
-                        $('#' + obj).append('<p style="color:white">' + response.drinks[obj][name] + '</p>');
+                    var meas = 'strMeasure' + counter
+                    if ( keysArray[i] === name) {
+                        $('#' + obj).append('<p style="color:white">' + response.drinks[obj][name] + '  '+ response.drinks[obj][meas] +'</p>');
                         counter++;
                     }
                     $('#main').append('</div>');

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -17,11 +18,28 @@
 </head>
 
 <body>
-    <div id="promo">
-        <div class="jumbotron">
-            <h1>Add your Drink</h1>
-            <p class="white">Didn't find your favorite?  You can add it!</p>
+    <div class="container-fluid main-header-text">
+        <div class="top-header-container">
+            <div class="header-cell">
+                <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif;">ADD A DRINK</h1></div>
         </div>
+        <nav class="navbar navbar-default nav-main-wrapper">
+
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand visible-xs-block navbar-link" href="#">MENU </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" role="presentation"><a href="/home">Home </a></li>
+                        <li role="presentation"><a href="/find">Drinks</a></li>
+                        <li role="presentation"><a href="/getmixing">Get Mixing</a></li>
+                        <li role="presentation"><a href="/add">Add</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
 
 <form class="drink-form" id="addForm">

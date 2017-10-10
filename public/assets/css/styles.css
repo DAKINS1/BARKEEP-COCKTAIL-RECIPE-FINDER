@@ -34,12 +34,14 @@ a {
   color:rgb(6,4,0);
 }
 
+
 #drink1 {
   background-image:url(../../assets/img/loft.jpg);
 }
 
 #navbarColor {
   background-color:rgb(223,105,26);
+
 }
 
 .threeImage {
@@ -63,6 +65,7 @@ a {
 .navbar-default {
   background-color:#df691a;
   border-color:#df691a;
+
 }
 
 /*getMixing Page*/

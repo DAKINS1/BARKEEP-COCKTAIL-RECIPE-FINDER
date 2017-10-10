@@ -26,4 +26,8 @@ module.exports = function(app, path){
     res.sendFile(path.join(__dirname, '../views/add.html'));
     });
 
+    app.get('/glassware', function(req, res){
+    res.sendFile(path.join(__dirname, '../views/glassware.html'));
+    });
+
 }
