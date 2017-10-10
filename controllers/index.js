@@ -30,4 +30,12 @@ module.exports = function(app, path){
     res.sendFile(path.join(__dirname, '../views/glassware.html'));
     });
 
+    app.get('/tools', function(req, res){
+    res.sendFile(path.join(__dirname, '../views/tools.html'));
+    });
+
+    app.get('/technique', function(req, res){
+    res.sendFile(path.join(__dirname, '../views/technique.html'));
+    });
+
 }
