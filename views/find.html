@@ -109,13 +109,13 @@ img {
                 if (response.drinks[obj].strDrink) $('#' + obj).append('<h4 style="color:white">' + response.drinks[obj].strDrink + '</h4>');
                 if (response.drinks[obj].strDrinkThumb) $('#' + obj).append('<img src="' + response.drinks[obj].strDrinkThumb + '">')
                 var keysArray = Object.keys(response.drinks[obj]);
-                console.log(keysArray)
                 var counter = 1;
                 for (var i = 0; i < keysArray.length; i++) {
+                    var index = keysArray[i];
                     var name = 'strIngredient' + counter
-                    var meas = 'strMeasure' + counter
-                    if ( keysArray[i] === name) {
-                        $('#' + obj).append('<p style="color:white">' + response.drinks[obj][name] + '  '+ response.drinks[obj][meas] +'</p>');
+                    if ( keysArray[i] === name && response.drinks[obj][index] !== null) {
+                        $('#' + obj).append('<p class="ingredient" style="color:white">' + response.drinks[obj][name] + '</p>');
+
                         counter++;
                     }
                     $('#main').append('</div>');
