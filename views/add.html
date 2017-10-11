@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-        <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/addpage.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
 
 </head>
 
@@ -21,7 +21,8 @@
     <div class="container-fluid main-header-text">
         <div class="top-header-container">
             <div class="header-cell">
-                <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif;">Add a drink</h1></div>
+                <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif;">Add a drink</h1>
+            </div>
         </div>
         <nav class="navbar navbar-default nav-main-wrapper">
 
@@ -42,53 +43,52 @@
     </div>
 
 
-<form class="drink-form" id="addForm">
-  <div class="form-group">
-    <input type="text" class="form-control" id="drinkName" placeholder="Enter drink Name">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="ingredient1" placeholder="Enter ingredients">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<BR>
+    <form class="drink-form" id="addForm">
+        <div class="form-group">
+            <input type="text" class="form-control" id="drinkName" name="drink_name" placeholder="Enter drink Name">
+        </div>
+        <div id="ingredientsDiv" class="form-group">
+
+        </div>
+        <button id="add" class="btn btn-primary">Submit</button>
+        <button id="addMore" class="btn btn-primary">Add More</button>
+    </form>
+    <BR>
 
     <!-- Page Layout here -->
     <main>
         <div class="container main-content">
             <div class="row"></div>
         </div>
-    </main> <!-- end of Main -->
+    </main>
+    <!-- end of Main -->
 
 
-    <div class="footer-dark">
-        <footer id="footerArea">
+    <div class="footer-clean">
+        <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-push-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Blah blah. Blah blah. Blah blah. Blah blah. Blah blah.</p>
-
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>Basics</h3>
+                    <div class="col-md-3 col-md-offset-1 col-sm-4 item">
+                        <h3 class="footer-h3">Basics</h3>
                         <ul>
                             <li><a href="/glassware">Glassware</a></li>
                             <li><a href="/tools">Tools</a></li>
                             <li><a href="/technique">Techniques</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>About</h3>
+                    <div class="col-md-3 col-sm-4 item">
+                        <h3 class="footer-h3">About</h3>
                         <ul>
                             <li><a href="#">Company</a></li>
                             <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Legacy</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-12 col-sm-4 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    <div class="col-md-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a>
+                        <a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">Company Name © 2016</p>
+                    </div>
                 </div>
-                <p class="copyright">Company Name © 2016</p>
             </div>
         </footer>
     </div>
@@ -99,6 +99,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#addMore').on('click', function (event) {
+                event.preventDefault(event);
+
+                var moreIngredients =
+                    '<input type="text" name="ingredients" value="" placeholder="Add an ingredient" class="form-control"><br>';
+
+                $('#ingredientsDiv').append(moreIngredients);
+
+            });
+
+            $('#add').on('click', function (event) {
+                event.preventDefault(event);
+                $('#add').addClass('hide');
+                $('#addMore').addClass('hide');
+                $.ajax({
+                    method: 'POST',
+                    url: './add',
+                    data: $('#addForm').serialize()
+                }).done(function (result) {
+                    // console.log(result);
+                    // {ingredients: ["Yellow", "Blue"], id: 6, drink_name: "orange", }
+
+                    $('#ingredientsDiv').html('<div id="ingreDiv" class="col-md-offset-4 col-md-6">');
+
+                    $('#ingreDiv').append('<h1 style="color: white;">' + result.drink_name + '</h1>' + '<br><div id="drinkIngredients"><div>');
+                    $('#drinkIngredients').append('<h3>Ingredients</3><br><h4 style="color: white;">' + result.ingredients + '</h4>' + '<br>');
+                    // $('#drinkIngredients').append('<img src="'+ element.url + '"><br>');
+                })
+
+            });
+        });
+    </script>
 </body>
 
 </html>

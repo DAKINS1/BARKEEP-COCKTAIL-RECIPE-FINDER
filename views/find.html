@@ -8,15 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/findpage.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
 <style>
 img {
-    max-height: 200px;
+    max-height: 275px;
+    padding-bottom: 10px;
+    /* max-width: 300px; */
+}
+.drink-wrap {
+    margin-bottom: 20px;
+    text-align: center;
+    height: 100%;
+}
+.ingredient {
+    margin-bottom: 10px;
+    background: black;
+    border: 1px solid #fff;
+    padding: 5px 0;
 }
 </style>
 </head>
@@ -52,50 +64,50 @@ img {
         </form>
         <BR>
 
-    <div id="main-container">
-     <div id="main"></div>
+    <div id="main-container" class="container">
+     <div id="main" class="row"></div>
     </div>
 
-<!--     <div id= "row">
-    <div class="footer-dark">
-        <footer id="footerArea">
+    <div id= "row">
+    <div class="footer-clean">
+        <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-push-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Blah blah. Blah blah. Blah blah. Blah blah. Blah blah.</p>
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>Services</h3>
+                    <div class="col-md-3 col-md-offset-1 col-sm-4 item">
+                        <h3 class="footer-h3">Basics</h3>
                         <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
+                            <li><a href="/glassware">Glassware</a></li>
+                            <li><a href="/tools">Tools</a></li>
+                            <li><a href="/technique">Techniques</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>About</h3>
+                    <div class="col-md-3 col-sm-4 item">
+                        <h3 class="footer-h3">About</h3>
                         <ul>
                             <li><a href="#">Company</a></li>
                             <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Legacy</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-12 col-sm-4 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    <div class="col-md-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a>
+                        <a
+                            href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                            <p class="copyright">Company Name © 2016</p>
+                    </div>
                 </div>
-                    <p class="copyright">Company Name © 2016</p>
             </div>
         </footer>
-    </div> -->
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/jquery.matchHeight.js"></script>
 </body>
 
 <script>
+
     function searchDrinks(drink) {
 
         var queryURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink;
@@ -104,23 +116,35 @@ img {
             url: queryURL,
             method: "GET"
         }).done(function (response) {
-            for (var obj in response.drinks) {
-                $('#main').append('<div class="col-md-2" id=' + obj + '>');
-                if (response.drinks[obj].strDrink) $('#' + obj).append('<h4 style="color:white">' + response.drinks[obj].strDrink + '</h4>');
+
+            for (var obj = 0; obj < 4; obj++) {
+                $('#main').append('<div class="drink-wrap col-md-3" id=' + obj + '>');
+                if (response.drinks[obj].strDrink) $('#' + obj).append('<h3 style="color:white">' + response.drinks[obj].strDrink + '</h3>');
                 if (response.drinks[obj].strDrinkThumb) $('#' + obj).append('<img src="' + response.drinks[obj].strDrinkThumb + '">')
                 var keysArray = Object.keys(response.drinks[obj]);
                 var counter = 1;
+
                 for (var i = 0; i < keysArray.length; i++) {
                     var index = keysArray[i];
-                    var name = 'strIngredient' + counter
-                    if ( keysArray[i] === name && response.drinks[obj][index] !== null) {
-                        $('#' + obj).append('<p class="ingredient" style="color:white">' + response.drinks[obj][name] + '</p>');
+                    var meas = 'strMeasure' + counter;
+                    var name = 'strIngredient' + counter;
+                    if ( keysArray[i] === name && response.drinks[obj][index] !== null && response.drinks[obj][index] !== '' ) {
+                        $('#' + obj).append(
+                            '<h4 class="ingredient" style="color:white;">' + response.drinks[obj][name] + 
+                                '<small style="color:white;">&nbsp; - ' +
+                                    response.drinks[obj][meas] +
+                                '</small>' +
+                            '</h4>'
+                        );
 
                         counter++;
                     }
                     $('#main').append('</div>');
                 }
+
+                $('#' + obj).append('<p class="instructions">' + response.drinks[obj]['strInstructions'] + '</p>');
             }
+            // $('.col-md-3').matchHeight();
         });
     }
 
@@ -128,10 +152,13 @@ img {
     $("#select-drink").on("click", function (event) {
 
         event.preventDefault();
+        $('#main').empty();
 
         var drink = $("#drink-input").val().trim();
 
         searchDrinks(drink);
+
+        // $('.col-md-3').matchHeight();
 
     });
 
