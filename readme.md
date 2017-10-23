@@ -32,10 +32,10 @@ Body-Parser
 Sequelize-Json
 
 #Original authors:
--Michael Mason
--Bryan Tran
--Ditas Fleck  
--Eric Hermoso
+- Michael Mason
+- Bryan Tran
+- Ditas Fleck  
+- Eric Hermoso
 
 
 Acknowledgments
@@ -43,9 +43,9 @@ Acknowledgments
 
 
 TO DO's
--User log-in profile
--User to have own book
--User Saved favorite recipe log
--User Added recipes
+- User log-in profile
+- User to have own book
+- User Saved favorite recipe log
+- User Added recipes
 
 
