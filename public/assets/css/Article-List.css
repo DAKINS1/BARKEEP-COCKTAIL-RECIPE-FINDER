@@ -1,11 +1,10 @@
-.article-list {
-  color:#313437;
-  background-color:#fff;
+/*.article-list {
+  background-color:#ffffff;
   margin-top:-20px;
 }
 
 .article-list p {
-  color:#7d8285;
+  color:#ffffff;
 }
 
 .article-list h2 {
@@ -62,7 +61,6 @@
   margin:22px auto 0;
   line-height:1;
   display:block;
-  color:#4f86c3;
   opacity:0.85;
   transition:opacity 0.2s;
   text-decoration:none;
@@ -71,4 +69,4 @@
 .article-list .item .action:hover {
   opacity:1;
 }
-
+*/

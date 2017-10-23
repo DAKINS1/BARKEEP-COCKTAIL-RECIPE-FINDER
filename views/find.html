@@ -5,73 +5,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a drink</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+<!--     <link rel="stylesheet" href="assets/css/findpage.css"> -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/findpage.css">
-    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
 <style>
 img {
-    max-height: 275px;
-    padding-bottom: 10px;
-    /* max-width: 300px; */
-}
-.drink-wrap {
-    margin-bottom: 20px;
-    text-align: center;
-    height: 100%;
-}
-.ingredient {
-    margin-bottom: 10px;
-    background: black;
-    border: 1px solid #fff;
-    padding: 5px 0;
+    max-height: 350px;
 }
 </style>
 </head>
 
 <body>
-    <div class="container-fluid main-header-text">
-        <div class="top-header-container">
-            <div class="header-cell">
-                <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif;">Find a drink</h1></div>
-        </div>
-        <nav class="navbar navbar-default nav-main-wrapper">
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 data-aos="fade-up" data-aos-duration="1900" data-aos-offset="50" data-aos-once="true" id="mix" style="font-family:'Playfair Display', serif; color: black">Find a drink</h1></div>
+</div>
 
-            <div class="container">
-                <div class="navbar-header"><a class="navbar-brand visible-xs-block navbar-link" href="#">MENU </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active" role="presentation"><a href="/home">Home </a></li>
-                        <li role="presentation"><a href="/find">Drinks</a></li>
-                        <li role="presentation"><a href="/getmixing">Get Mixing</a></li>
-                        <li role="presentation"><a href="/add">Add</a></li>
+
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <div class="collapse navbar-collapse" >
+                    <ul class="nav">
+                        <li><a class="navbar-brand" href="/home">Home </a></li>
+                        <li><a class="navbar-brand" href="/find">Drinks</a></li>
+                        <li><a class="navbar-brand" href="/getmixing">Basics</a></li>
+                        <li><a class="navbar-brand" href="/add">Add</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
-        <form class="drink-form" id="drink-form">
-          <div class="form-group">
-            <input type="text" class="form-control" id="drink-input" placeholder="Enter Liquor type, Drink Name, or Ingredient">
-          </div>
-          <button id="select-drink" type="submit" class="btn btn-primary">Search</button>
-        </form>
-        <BR>
+<br>
+<br>
 
-    <div id="main-container" class="container">
+   <div class="container" id="main-container">
+        <form class="drink-form" id="drink-form">
+            <div class="form-group">
+            <input type="text" class="form-control" id="drink-input" placeholder="Enter Liquor type, Drink Name, or Ingredient"><br>
+            <button type="submit" id="select-drink" class="btn btn-primary" >Search</button>
+        </form>
+            </div>
+        <BR>
+        <br>
      <div id="main" class="row"></div>
     </div>
 
+
+
+<div id="container">
     <div id= "row">
     <div class="footer-clean">
         <footer>
-            <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-md-offset-1 col-sm-4 item">
                         <h3 class="footer-h3">Basics</h3>
@@ -81,14 +68,7 @@ img {
                             <li><a href="/technique">Techniques</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-sm-4 item">
-                        <h3 class="footer-h3">About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Legacy</a></li>
-                        </ul>
-                    </div>
+
                     <div class="col-md-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a>
                         <a
                             href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
@@ -97,71 +77,16 @@ img {
                 </div>
             </div>
         </footer>
-    </div>
-    </div>
+</div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
+    <script src="assets/js/drinkQuery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
-    <script src="assets/js/jquery.matchHeight.js"></script>
 </body>
 
-<script>
 
-    function searchDrinks(drink) {
-
-        var queryURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).done(function (response) {
-
-            for (var obj = 0; obj < 4; obj++) {
-                $('#main').append('<div class="drink-wrap col-md-3" id=' + obj + '>');
-                if (response.drinks[obj].strDrink) $('#' + obj).append('<h3 style="color:white">' + response.drinks[obj].strDrink + '</h3>');
-                if (response.drinks[obj].strDrinkThumb) $('#' + obj).append('<img src="' + response.drinks[obj].strDrinkThumb + '">')
-                var keysArray = Object.keys(response.drinks[obj]);
-                var counter = 1;
-
-                for (var i = 0; i < keysArray.length; i++) {
-                    var index = keysArray[i];
-                    var meas = 'strMeasure' + counter;
-                    var name = 'strIngredient' + counter;
-                    if ( keysArray[i] === name && response.drinks[obj][index] !== null && response.drinks[obj][index] !== '' ) {
-                        $('#' + obj).append(
-                            '<h4 class="ingredient" style="color:white;">' + response.drinks[obj][name] + 
-                                '<small style="color:white;">&nbsp; - ' +
-                                    response.drinks[obj][meas] +
-                                '</small>' +
-                            '</h4>'
-                        );
-
-                        counter++;
-                    }
-                    $('#main').append('</div>');
-                }
-
-                $('#' + obj).append('<p class="instructions">' + response.drinks[obj]['strInstructions'] + '</p>');
-            }
-            // $('.col-md-3').matchHeight();
-        });
-    }
-
-
-    $("#select-drink").on("click", function (event) {
-
-        event.preventDefault();
-        $('#main').empty();
-
-        var drink = $("#drink-input").val().trim();
-
-        searchDrinks(drink);
-
-        // $('.col-md-3').matchHeight();
-
-    });
-
-</script>
 
 </html>
