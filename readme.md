@@ -19,17 +19,14 @@ A schema.sql and seeds.sql is included to get you started.
 
 #Built With:
 
-Bootstrap
-Node.js
-Express
-Sequelize
-MySQL Workbench
-Heroku
-
-#NPM Modules
-
-Body-Parser
-Sequelize-Json
+- Bootstrap
+- Node.js
+- MySQL Workbench
+- Heroku
+- Express
+- Sequelize
+- Body-Parser
+- Sequelize-Json
 
 #Original authors:
 - Michael Mason
@@ -39,7 +36,7 @@ Sequelize-Json
 
 
 Acknowledgments
-- Zac with TheCocktailDB.com
+- Zac with TheCocktailDB.com for the use of his API
 
 
 TO DO's
