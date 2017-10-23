@@ -1,5 +1,5 @@
 
-My work in progress:  
+My work in process:  
 ![Alt text](https://s1.postimg.org/8stk7uqpyn/The_Bar_Keeper.png)
 
 BEFORE:
