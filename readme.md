@@ -1,6 +1,6 @@
 BARKEEPER (Revised from class version)
 
-I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my style.
+I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my style.  I also made changes to the Jquery Dom Manipulation.
 
 
 
@@ -31,9 +31,11 @@ Heroku
 Body-Parser
 Sequelize-Json
 
-#Authors
+#Original authors
+Michael Mason
+Bryan Tran
 Ditas Fleck  
-
+Eric Hermoso
 
 
 Acknowledgments
