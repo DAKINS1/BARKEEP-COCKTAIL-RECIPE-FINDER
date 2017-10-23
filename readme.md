@@ -1,9 +1,10 @@
 
+BEFORE:
+![Alt text](https://s1.postimg.org/8q0r0b7i1r/before.png)
+
 My work in process:  
 ![Alt text](https://s1.postimg.org/8stk7uqpyn/The_Bar_Keeper.png)
 
-BEFORE:
-![Alt text](https://s1.postimg.org/8q0r0b7i1r/before.png)
 
 BARKEEPER (Revised from class version)
 
