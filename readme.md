@@ -1,6 +1,9 @@
+![Alt text](https://s1.postimg.org/8stk7uqpyn/The_Bar_Keeper.png)
+
+
 BARKEEPER (Revised from class version)
 
-I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my style.  I also made changes to the Jquery Dom Manipulation.
+I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my aesthetic.  I also made changes to the Jquery Dom Manipulation.
 
 
 
