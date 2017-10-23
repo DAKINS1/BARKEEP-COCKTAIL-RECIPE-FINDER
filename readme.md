@@ -1,4 +1,8 @@
-# Project 2- BARKEEPER REVISED from original version
+BARKEEPER (Revised from class version)
+
+I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my style.
+
+
 
 An online cocktail recipe database in which a user can find drink recipes from a search using liquory type, drink name or ingredient.
 A search query into the database can also find a drink based on what ingredients a user has on-hand.  In addition, a user can add a recipe into the database.
