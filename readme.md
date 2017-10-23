@@ -39,7 +39,7 @@ Sequelize-Json
 
 
 Acknowledgments
--TheCocktailDB.com
+- Zac with TheCocktailDB.com
 
 
 TO DO's
