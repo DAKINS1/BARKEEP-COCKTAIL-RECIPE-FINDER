@@ -31,21 +31,21 @@ Heroku
 Body-Parser
 Sequelize-Json
 
-#Original authors
-Michael Mason
-Bryan Tran
-Ditas Fleck  
-Eric Hermoso
+#Original authors:
+-Michael Mason
+-Bryan Tran
+-Ditas Fleck  
+-Eric Hermoso
 
 
 Acknowledgments
-TheCocktailDB.com
-Michael Mason for back-end development
+-TheCocktailDB.com
+
 
 TO DO's
-User log-in profile
-User to have own book with:
-  User Saved favorite recipe log
-  User Added recipes
+-User log-in profile
+-User to have own book
+-User Saved favorite recipe log
+-User Added recipes
 
 
