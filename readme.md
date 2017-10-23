@@ -50,4 +50,8 @@ TO DO's
 - User Saved favorite recipe log
 - User Added recipes
 
+Future changes:
+Integrate Amazon to purchase glass and bar-ware.
+More recipes
+
 
