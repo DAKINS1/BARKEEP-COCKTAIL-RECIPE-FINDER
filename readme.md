@@ -2,11 +2,11 @@
 BEFORE:
 ![Alt text](https://s1.postimg.org/8q0r0b7i1r/before.png)
 
-My work in process:  
+My work in process updating site:  
 ![Alt text](https://s1.postimg.org/8stk7uqpyn/The_Bar_Keeper.png)
 
 
-BARKEEPER (Revised from class version)
+BARKEEPER (Revised from earlier version)
 
 I really enjoyed this project and wanted to make it better.  I am in the process of deconstructing and reconstructing this application so it is more in my aesthetic.  I also made changes to the Jquery Dom Manipulation.
 
